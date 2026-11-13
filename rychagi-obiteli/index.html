@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Рычаги Обители Древних — БК Справочник (Combats)</title>
+<meta name="description" content="Тоннели Посвящения в Обители Древних (Бойцовский клуб): запишите порядок пяти рычагов у двери и отмечайте нажатые — порядок не забудется, пока зачищаете этаж.">
+<link rel="canonical" href="https://bk-spravochnik.github.io/rychagi-obiteli/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Рычаги Обители Древних — БК Справочник (Combats)">
+<meta property="og:description" content="Тоннели Посвящения в Обители Древних (Бойцовский клуб): запишите порядок пяти рычагов у двери и отмечайте нажатые — порядок не забудется, пока зачищаете этаж.">
+<meta property="og:url" content="https://bk-spravochnik.github.io/rychagi-obiteli/">
+<meta property="og:image" content="https://bk-spravochnik.github.io/icon-512.png">
+<meta name="theme-color" content="#101219">
+
+<link rel="icon" href="/icon-512.png">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top"><a class="brand" href="/"><img src="/icon-512.png" alt="" width="28" height="28">БК Справочник</a>
+<a class="get" href="https://play.google.com/store/apps/details?id=ee.brukvin.bkguide" rel="noopener">Приложение</a></header>
+<main>
+<nav class="crumbs"><a href="/">Главная</a> › <a href="/instrumenty/">Инструменты</a></nav>
+<article class="levers">
+<p class="kind">Инструмент</p>
+<h1>Рычаги Обители</h1>
+<p class="lead" id="hint"></p>
+
+<div class="strip" id="strip" aria-label="Порядок рычагов"></div>
+<div id="panel"></div>
+
+<button type="button" class="reset" id="reset">Новый поход</button>
+<p class="muted center">Порядок и отметки сохраняются в этом браузере: можно уйти в игру и вернуться. Тоннели Посвящения — 2 этаж <a href="../obitel-drevnih/">Обители Древних</a>.</p>
+</article>
+
+<style>
+.levers .center { text-align: center; }
+.strip { display: flex; justify-content: center; gap: 8px; margin: 18px 0; }
+.strip span {
+  width: 54px; height: 54px; display: flex; align-items: center; justify-content: center;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  font: 700 18px var(--sans);
+}
+.strip span.done { background: var(--surface2); color: var(--muted); border-color: #4fbf7f; }
+.strip span.next { border: 2px solid var(--accent); }
+.pad { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.pad button, .big, .reset, .link {
+  font: 700 18px var(--sans); border-radius: 12px; cursor: pointer;
+}
+.pad button {
+  width: 64px; height: 64px; background: var(--accent); color: var(--accent-ink); border: 0;
+}
+.pad button:disabled { background: var(--surface2); color: var(--muted); cursor: default; }
+.link { display: block; margin: 12px auto 0; background: none; border: 0; color: var(--accent); font-size: 15px; }
+.link:disabled { color: var(--muted); cursor: default; }
+.card-next {
+  background: var(--surface); border: 1px solid var(--accent); border-radius: 14px;
+  padding: 16px; text-align: center;
+}
+.card-next.finished { border-color: #4fbf7f; }
+.card-next .num { font: 700 64px/1.1 var(--serif); color: var(--accent); }
+.card-next.finished .num { color: #4fbf7f; }
+.big {
+  display: block; width: 100%; margin-top: 12px; padding: 16px;
+  background: var(--accent); color: var(--accent-ink); border: 0;
+}
+.reset {
+  display: block; width: 100%; margin-top: 24px; padding: 12px;
+  background: none; color: var(--fg); border: 1px solid var(--line); font-size: 16px;
+}
+</style>
+
+<script>
+(function () {
+  var R = ['I', 'II', 'III', 'IV', 'V'], KEY = 'bk-levers';
+  var run = { order: [], done: 0 };
+  try {
+    var saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (saved && Array.isArray(saved.order)) run = saved;
+  } catch (e) {}
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(run)); } catch (e) {} }
+  function set(r) { run = r; save(); render(); }
+  function el(id) { return document.getElementById(id); }
+
+  function render() {
+    var complete = run.order.length === 5, next = complete && run.done < 5 ? run.order[run.done] : null;
+    el('hint').textContent = complete
+      ? 'Нажимайте рычаги в этом порядке и отмечайте каждый. Ошибка в игре — ловушка и сброс рычагов.'
+      : 'Стоя у двери, нажмите цифры в том порядке, как они нарисованы над решёткой.';
+    var s = '';
+    for (var i = 0; i < 5; i++) {
+      var cls = i < run.done ? 'done' : (complete && i === run.done ? 'next' : '');
+      var t = i < run.order.length ? R[run.order[i] - 1] + (i < run.done ? ' ✓' : '') : '·';
+      s += '<span class="' + cls + '">' + t + '</span>';
+    }
+    el('strip').innerHTML = s;
+
+    var p = el('panel');
+    if (!complete) {
+      var h = '<div class="pad">';
+      for (var n = 1; n <= 5; n++) {
+        h += '<button type="button" data-n="' + n + '"' + (run.order.indexOf(n) >= 0 ? ' disabled' : '') + '>' + R[n - 1] + '</button>';
+      }
+      h += '</div><button type="button" class="link" id="back"' + (run.order.length ? '' : ' disabled') + '>⌫ Стереть последнюю</button>';
+      p.innerHTML = h;
+      p.querySelectorAll('.pad button').forEach(function (b) {
+        b.onclick = function () { set({ order: run.order.concat([+b.dataset.n]), done: 0 }); };
+      });
+      el('back').onclick = function () { set({ order: run.order.slice(0, -1), done: 0 }); };
+    } else {
+      p.innerHTML = next === null
+        ? '<div class="card-next finished"><div>Все рычаги нажаты</div><div class="num">✓</div><div>Можно идти к тайнику.</div></div>'
+        : '<div class="card-next"><div>Следующий рычаг · ' + (run.done + 1) + ' из 5</div><div class="num">' + R[next - 1] + '</div></div>' +
+          '<button type="button" class="big" id="pull">✓ Нажал ' + R[next - 1] + '</button>';
+      p.innerHTML += '<button type="button" class="link" id="undo"' + (run.done ? '' : ' disabled') + '>↶ Отменить отметку</button>';
+      if (next !== null) el('pull').onclick = function () { set({ order: run.order, done: run.done + 1 }); };
+      el('undo').onclick = function () { set({ order: run.order, done: Math.max(0, run.done - 1) }); };
+    }
+    el('reset').disabled = run.order.length === 0;
+  }
+  el('reset').onclick = function () { set({ order: [], done: 0 }); };
+  render();
+})();
+</script>
+
+</main>
+<footer>
+<p><a href="/">БК Справочник</a> — неофициальный справочник по онлайн-игре «Бойцовский клуб» (combats.com). Независимый фанатский проект, не связан с разработчиками и правообладателями игры. Названия и товарные знаки принадлежат их владельцам.</p>
+</footer>
+</body>
+</html>
