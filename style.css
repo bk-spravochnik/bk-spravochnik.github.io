@@ -137,6 +137,8 @@ tr:last-child td { border-bottom: 0; }
 .q-f { background: #6fa9b1; } .q-vf { background: #3a7da8; }
 .q-ef { background: #9456b0; } .q-r { background: #a25077; }
 .q-vr { background: #c5bd10; } .q-er { background: #f3be2f; }
+/* Light badges need dark letters to stay readable. */
+.q-vp, .q-vr, .q-er { color: #1c1409; }
 .q-u { background: #e47125; } .q-l { background: #d31110; }
 
 footer {
