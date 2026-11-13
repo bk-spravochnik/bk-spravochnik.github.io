@@ -81,8 +81,8 @@ h3 { font-size: 19px; margin: 24px 0 8px; }
   border-radius: 14px; padding: 14px 16px;
   color: var(--fg); text-decoration: none;
 }
-.card b { font-family: var(--serif); font-size: 19px; }
-.card span:last-child { color: var(--muted); font-size: 15px; }
+.card > b { font-family: var(--serif); font-size: 19px; }
+.card > span:last-child { color: var(--muted); font-size: 15px; }
 .card:hover { border-color: var(--accent); }
 
 .toc {
