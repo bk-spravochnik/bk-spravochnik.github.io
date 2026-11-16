@@ -145,3 +145,8 @@ footer {
 }
 footer a { color: var(--muted); }
 .donate { margin: 12px 0 28px; }
+
+/* Map previews (tool/site_maps.dart). */
+.map-preview { margin: 16px 0; scroll-margin-top: 70px; }
+.map-preview img { display: block; width: 100%; height: auto; border-radius: 12px; }
+.map-preview figcaption { color: var(--muted); font-size: 15px; margin-top: 6px; }
