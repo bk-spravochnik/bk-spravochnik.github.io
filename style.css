@@ -150,3 +150,19 @@ footer a { color: var(--muted); }
 .map-preview { margin: 16px 0; scroll-margin-top: 70px; }
 .map-preview img { display: block; width: 100%; height: auto; border-radius: 12px; }
 .map-preview figcaption { color: var(--muted); font-size: 15px; margin-top: 6px; }
+
+/* Dungeons section: level filters without a script (radio + CSS). */
+.levels > input { position: absolute; opacity: 0; pointer-events: none; }
+.levels .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 12px; }
+.levels .chips label {
+  padding: 6px 14px; border-radius: 10px; cursor: pointer;
+  background: var(--surface); border: 1px solid var(--line); color: var(--fg); font-size: 15px;
+}
+#lv-all:checked ~ .chips label[for="lv-all"],
+#lv-low:checked ~ .chips label[for="lv-low"],
+#lv-mid:checked ~ .chips label[for="lv-mid"],
+#lv-high:checked ~ .chips label[for="lv-high"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
+#lv-low:checked ~ .cards .card:not([data-band="low"]),
+#lv-mid:checked ~ .cards .card:not([data-band="mid"]),
+#lv-high:checked ~ .cards .card:not([data-band="high"]) { display: none; }
+.levels > input:focus-visible ~ .chips { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 10px; }

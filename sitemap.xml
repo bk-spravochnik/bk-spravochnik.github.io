@@ -121,8 +121,8 @@
 <url><loc>https://bk-spravochnik.github.io/character-titles/</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/izlom-haosa/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/quest-veer-sheily/</loc><lastmod>2026-11-13</lastmod></url>
-<url><loc>https://bk-spravochnik.github.io/quest-gravimag/</loc><lastmod>2026-11-15</lastmod></url>
-<url><loc>https://bk-spravochnik.github.io/oil-lamp/</loc><lastmod>2026-11-15</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/quest-gravimag/</loc><lastmod>2026-11-16</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/oil-lamp/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/apparat-utilizacii/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/quest-yuverriat/</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/quest-nemodatok/</loc><lastmod>2026-11-13</lastmod></url>
@@ -139,9 +139,10 @@
 <url><loc>https://bk-spravochnik.github.io/city-razdor/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/city-black-old/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/city-otmorozki/</loc><lastmod>2026-11-16</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/dungeon-items/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/dungeons/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/character/</loc><lastmod>2026-11-16</lastmod></url>
-<url><loc>https://bk-spravochnik.github.io/razdel/quests/</loc><lastmod>2026-11-15</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/razdel/quests/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/events/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/daily/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/items/</loc><lastmod>2026-11-16</lastmod></url>
@@ -9379,6 +9380,8 @@
 <url><loc>https://bk-spravochnik.github.io/predmet/oil_lamp_vf/</loc></url>
 <url><loc>https://bk-spravochnik.github.io/predmet/oil_lamp_r/</loc></url>
 <url><loc>https://bk-spravochnik.github.io/predmet/germoshlem_iskateley/</loc></url>
+<url><loc>https://bk-spravochnik.github.io/predmet/bolotnyj_piastr/</loc></url>
+<url><loc>https://bk-spravochnik.github.io/predmet/babka_debt_receipt/</loc></url>
 <url><loc>https://bk-spravochnik.github.io/vzlomshchik-seyfov/</loc></url>
 <url><loc>https://bk-spravochnik.github.io/rychagi-obiteli/</loc></url>
 <url><loc>https://bk-spravochnik.github.io/otmychka/</loc></url>
