@@ -66,7 +66,7 @@
 <url><loc>https://bk-spravochnik.github.io/character-achievements/</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/beerfest/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/mosaics/</loc><lastmod>2026-11-12</lastmod></url>
-<url><loc>https://bk-spravochnik.github.io/character-nobility/</loc><lastmod>2026-11-12</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/character-nobility/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/guide-comeback/</loc><lastmod>2026-11-12</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/guide-pvp/</loc><lastmod>2026-11-15</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/guide-credits/</loc><lastmod>2026-11-12</lastmod></url>
@@ -98,7 +98,7 @@
 <url><loc>https://bk-spravochnik.github.io/clan-taverns/</loc><lastmod>2026-11-12</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/clan-armory/</loc><lastmod>2026-11-12</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/clan-chests/</loc><lastmod>2026-11-15</lastmod></url>
-<url><loc>https://bk-spravochnik.github.io/lich-secretary/</loc><lastmod>2026-11-12</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/lich-secretary/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/injuries/</loc><lastmod>2026-11-12</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/lucky-coin/</loc><lastmod>2026-11-12</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/stability-shard/</loc><lastmod>2026-11-12</lastmod></url>
@@ -132,8 +132,15 @@
 <url><loc>https://bk-spravochnik.github.io/pets-kecalun/</loc><lastmod>2026-11-13</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/portable-lab/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/nekrovill/</loc><lastmod>2026-11-13</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/city-monsters/</loc><lastmod>2026-11-16</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/city-bugagi/</loc><lastmod>2026-11-16</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/city-mages/</loc><lastmod>2026-11-16</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/city-trupozhory/</loc><lastmod>2026-11-16</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/city-razdor/</loc><lastmod>2026-11-16</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/city-black-old/</loc><lastmod>2026-11-16</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/city-otmorozki/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/dungeons/</loc><lastmod>2026-11-16</lastmod></url>
-<url><loc>https://bk-spravochnik.github.io/razdel/character/</loc><lastmod>2026-11-15</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/razdel/character/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/quests/</loc><lastmod>2026-11-15</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/events/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/daily/</loc><lastmod>2026-11-15</lastmod></url>
@@ -142,8 +149,9 @@
 <url><loc>https://bk-spravochnik.github.io/razdel/aligns/</loc><lastmod>2026-11-15</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/clans/</loc><lastmod>2026-11-15</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/pets/</loc><lastmod>2026-11-16</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/razdel/city-monsters/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/collections/</loc><lastmod>2026-11-12</lastmod></url>
-<url><loc>https://bk-spravochnik.github.io/razdel/guides/</loc><lastmod>2026-11-12</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/razdel/guides/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/magaziny/</loc></url>
 <url><loc>https://bk-spravochnik.github.io/magazin/berezka/</loc></url>
 <url><loc>https://bk-spravochnik.github.io/magazin/goods/</loc></url>
@@ -9370,6 +9378,7 @@
 <url><loc>https://bk-spravochnik.github.io/predmet/rare_nugget/</loc></url>
 <url><loc>https://bk-spravochnik.github.io/predmet/oil_lamp_vf/</loc></url>
 <url><loc>https://bk-spravochnik.github.io/predmet/oil_lamp_r/</loc></url>
+<url><loc>https://bk-spravochnik.github.io/predmet/germoshlem_iskateley/</loc></url>
 <url><loc>https://bk-spravochnik.github.io/vzlomshchik-seyfov/</loc></url>
 <url><loc>https://bk-spravochnik.github.io/rychagi-obiteli/</loc></url>
 <url><loc>https://bk-spravochnik.github.io/otmychka/</loc></url>
