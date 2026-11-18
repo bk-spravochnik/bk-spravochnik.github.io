@@ -161,3 +161,13 @@ footer a { color: var(--muted); }
 }
 .levels > input:focus-visible ~ .chips { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 10px; }
 .cgroup h2, .cextra h2 { font-size: 20px; margin: 22px 0 10px; }
+.map-floors { margin-top: 32px; scroll-margin-top: 70px; }
+.map-note { color: var(--muted); font-size: 15px; }
+.map-floor-nav { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 15px; }
+.map-floor { margin: 20px 0; scroll-margin-top: 70px; }
+.map-floor figcaption { font-weight: 600; margin-bottom: 6px; }
+.map-img { position: relative; overflow: hidden; border-radius: 12px; }
+.map-img img { display: block; width: 100%; height: auto; border-radius: 12px; }
+.map-cell { position: absolute; pointer-events: none; border-radius: 4px; scroll-margin-top: 45vh; }
+.map-cell:target { outline: 3px solid var(--accent); outline-offset: 1px; box-shadow: 0 0 0 9999px rgba(0, 0, 0, .35); animation: map-cell 1.2s ease-out 2; }
+@keyframes map-cell { 50% { outline-offset: 6px; } }
