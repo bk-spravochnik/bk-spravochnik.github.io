@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://bk-spravochnik.github.io/halloween/</loc><lastmod>2026-11-12</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/halloween/</loc><lastmod>2026-11-19</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/halloween-pumpkins/</loc><lastmod>2026-11-10</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/tverdynya-sumraka/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/quest-tome-of-chaos/</loc><lastmod>2026-11-10</lastmod></url>
@@ -68,7 +68,7 @@
 <url><loc>https://bk-spravochnik.github.io/mosaics/</loc><lastmod>2026-11-12</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/character-nobility/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/guide-comeback/</loc><lastmod>2026-11-12</lastmod></url>
-<url><loc>https://bk-spravochnik.github.io/guide-pvp/</loc><lastmod>2026-11-18</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/guide-pvp/</loc><lastmod>2026-11-19</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/guide-credits/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/items-gear-12/</loc><lastmod>2026-11-17</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/items-sets-12/</loc><lastmod>2026-11-15</lastmod></url>
@@ -101,7 +101,7 @@
 <url><loc>https://bk-spravochnik.github.io/lich-secretary/</loc><lastmod>2026-11-17</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/injuries/</loc><lastmod>2026-11-12</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/lucky-coin/</loc><lastmod>2026-11-12</lastmod></url>
-<url><loc>https://bk-spravochnik.github.io/stability-shard/</loc><lastmod>2026-11-12</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/stability-shard/</loc><lastmod>2026-11-19</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/solar-vial/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/radiance-chests/</loc><lastmod>2026-11-18</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/peshchery-mgly/</loc><lastmod>2026-11-18</lastmod></url>
@@ -142,11 +142,11 @@
 <url><loc>https://bk-spravochnik.github.io/city-otmorozki/</loc><lastmod>2026-11-16</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/dungeon-items/</loc><lastmod>2026-11-17</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/dungeons/</loc><lastmod>2026-11-18</lastmod></url>
-<url><loc>https://bk-spravochnik.github.io/razdel/character/</loc><lastmod>2026-11-18</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/razdel/character/</loc><lastmod>2026-11-19</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/quests/</loc><lastmod>2026-11-17</lastmod></url>
-<url><loc>https://bk-spravochnik.github.io/razdel/events/</loc><lastmod>2026-11-16</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/razdel/events/</loc><lastmod>2026-11-19</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/daily/</loc><lastmod>2026-11-16</lastmod></url>
-<url><loc>https://bk-spravochnik.github.io/razdel/items/</loc><lastmod>2026-11-18</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/razdel/items/</loc><lastmod>2026-11-19</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/upgrade/</loc><lastmod>2026-11-17</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/aligns/</loc><lastmod>2026-11-15</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/razdel/clans/</loc><lastmod>2026-11-18</lastmod></url>
@@ -9387,7 +9387,7 @@
 <url><loc>https://bk-spravochnik.github.io/rychagi-obiteli/</loc></url>
 <url><loc>https://bk-spravochnik.github.io/otmychka/</loc></url>
 <url><loc>https://bk-spravochnik.github.io/instrumenty/</loc></url>
-<url><loc>https://bk-spravochnik.github.io/</loc><lastmod>2026-11-18</lastmod></url>
+<url><loc>https://bk-spravochnik.github.io/</loc><lastmod>2026-11-19</lastmod></url>
 <url><loc>https://bk-spravochnik.github.io/o-proekte/</loc></url>
 <url><loc>https://bk-spravochnik.github.io/podderzhat/</loc></url>
 </urlset>
