@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Калькулятор чарок Combats (БК) — сколько чарок VP, Оков Сущности и молотов до L</title>
+<meta name="description" content="Калькулятор чарок для Бойцовского клуба: сколько простых чарок VP, Оков Сущности и Энергетических молотов нужно на качество от P до L, с учётом чарок, которые уже есть. P из 3 или из 10 VP.">
+<link rel="canonical" href="https://bk-spravochnik.github.io/kalkulyator-charok/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="БК Справочник">
+<meta property="og:title" content="Калькулятор чарок Combats (БК) — сколько чарок VP, Оков Сущности и молотов до L">
+<meta property="og:description" content="Калькулятор чарок для Бойцовского клуба: сколько простых чарок VP, Оков Сущности и Энергетических молотов нужно на качество от P до L, с учётом чарок, которые уже есть. P из 3 или из 10 VP.">
+<meta property="og:url" content="https://bk-spravochnik.github.io/kalkulyator-charok/">
+<meta property="og:image" content="https://bk-spravochnik.github.io/icon-512.png">
+
+<meta name="theme-color" content="#101219">
+
+<link rel="icon" href="/icon-512.png">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","name":"Калькулятор чарок","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://bk-spravochnik.github.io/"},{"@type":"ListItem","position":2,"name":"Инструменты","item":"https://bk-spravochnik.github.io/instrumenty/"},{"@type":"ListItem","position":3,"name":"Калькулятор чарок","item":"https://bk-spravochnik.github.io/kalkulyator-charok/"}]}</script>
+</head>
+<body>
+<header class="top"><a class="brand" href="/"><img src="/icon-512.png" alt="" width="28" height="28">БК Справочник</a>
+<a class="get" href="https://play.google.com/store/apps/details?id=ee.brukvin.bkguide" rel="noopener">Приложение</a></header>
+<main>
+<nav class="crumbs"><a href="/">Главная</a> › <a href="/instrumenty/">Инструменты</a></nav>
+<article class="charms">
+<p class="kind">Инструмент</p>
+<h1>Калькулятор чарок</h1>
+<p class="lead">Сколько простых чарок VP, Оков Сущности и Энергетических молотов уйдёт на нужное качество — с учётом чарок, которые у вас уже есть. Чарки одного слота и уровня, Оковы — того же уровня.</p>
+
+<h2>Что собрать</h2>
+<div class="row">
+<label>Сколько<input id="count" type="number" min="1" max="999" value="1" inputmode="numeric"></label>
+<label>Качество<select id="target"></select></label>
+</div>
+<div class="seg" id="method">
+<button type="button" data-m="three">P из 3 VP</button>
+<button type="button" data-m="ten">P из 10 VP</button>
+</div>
+<p class="muted" id="method-note"></p>
+
+<h2>Уже есть</h2>
+<div class="stock" id="stock"></div>
+
+<div class="totals" id="totals"></div>
+<p class="muted" id="other"></p>
+
+<h2>По шагам</h2>
+<div class="table"><table id="steps"></table></div>
+<p class="muted">Три чарки одного качества сливаются в одну качеством выше; на каждый шаг уходит молот и Оковы по номеру шага: P — 1, F — 2 … L — 9. P можно собрать и из 10 VP — без Оков и без молота. Подробнее — в статье <a href="../upgrade-enchants/">Чарки</a>.</p>
+<button type="button" class="reset" id="reset">Очистить</button>
+</article>
+<style>
+.charms .row { display: flex; gap: 12px; flex-wrap: wrap; }
+.charms label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
+.charms input, .charms select {
+  font: 16px var(--sans); color: var(--fg); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 10px; padding: 9px 10px; min-width: 0;
+}
+.charms #count { width: 90px; }
+.charms #target { min-width: 120px; }
+.charms .seg { display: flex; margin: 14px 0 6px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; max-width: 420px; }
+.charms .seg button { flex: 1; padding: 11px 8px; font: 600 15px var(--sans); background: none; color: var(--fg); border: 0; cursor: pointer; }
+.charms .seg button.on { background: var(--accent); color: var(--accent-ink); }
+.charms .stock { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 10px; max-width: 520px; }
+.charms .stock input { width: 100%; box-sizing: border-box; }
+.charms .totals { display: flex; margin: 22px 0 8px; background: var(--surface); border: 1px solid var(--accent); border-radius: 14px; padding: 14px 6px; max-width: 520px; }
+.charms .totals div { flex: 1; text-align: center; }
+.charms .totals b { display: block; font: 700 26px var(--sans); color: var(--accent); }
+.charms .totals span { font-size: 13px; color: var(--muted); }
+.charms td, .charms th { white-space: nowrap; }
+.charms .reset { display: block; width: 100%; max-width: 520px; margin-top: 16px; padding: 12px; background: none; color: var(--fg); border: 1px solid var(--line); border-radius: 12px; font: 700 16px var(--sans); cursor: pointer; }
+</style>
+<script>
+(function () {
+  var Q = ['VP', 'P', 'F', 'VF', 'EF', 'R', 'VR', 'ER', 'U', 'L'];
+  var KEY = 'bk-charms';
+  var st = { target: 5, count: 1, method: 'three', stock: [] };
+  try { var s = JSON.parse(localStorage.getItem(KEY) || 'null'); if (s && s.target) st = s; } catch (e) {}
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {} }
+  function el(id) { return document.getElementById(id); }
+  function fmt(n) { var s = String(n); return s.length <= 4 ? s : s.replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+
+  // Same rules as the app (lib/features/tools/charm_calc.dart).
+  function plan(target, count, method, stock) {
+    var steps = [], need = count, okovy = 0, hammers = 0;
+    for (var q = target; q >= 1; q--) {
+      var have = stock[q] || 0, from = Math.min(need, have), make = need - from;
+      var ten = q === 1 && method === 'ten';
+      var o = ten ? 0 : make * q, h = ten ? 0 : make;
+      steps.push({ q: q, need: need, from: from, make: make, o: o, h: h });
+      okovy += o; hammers += h;
+      need = make * (ten ? 10 : 3);
+    }
+    var vp = stock[0] || 0, fromVp = Math.min(need, vp);
+    steps.push({ q: 0, need: need, from: fromVp });
+    return { steps: steps, vp: need - fromVp, okovy: okovy, hammers: hammers };
+  }
+
+  var sel = el('target');
+  for (var i = 1; i < Q.length; i++) { var o = document.createElement('option'); o.value = i; o.textContent = Q[i]; sel.appendChild(o); }
+
+  function render() {
+    sel.value = st.target;
+    el('count').value = st.count;
+    var btns = el('method').querySelectorAll('button');
+    for (var b = 0; b < btns.length; b++) btns[b].className = btns[b].getAttribute('data-m') === st.method ? 'on' : '';
+    el('method-note').textContent = st.method === 'three'
+      ? 'Три VP, Окова и молот на каждую P.'
+      : 'Десять VP без Оков и без молота на каждую P — больше чарок, но меньше Оков и молотов.';
+    var box = el('stock');
+    if (box.childElementCount !== st.target) {
+      box.innerHTML = '';
+      for (var k = 0; k < st.target; k++) {
+        var l = document.createElement('label'); l.textContent = Q[k];
+        var inp = document.createElement('input');
+        inp.type = 'number'; inp.min = '0'; inp.inputMode = 'numeric'; inp.placeholder = '0';
+        inp.value = st.stock[k] ? st.stock[k] : '';
+        inp.setAttribute('data-q', k);
+        inp.addEventListener('input', function (e) {
+          st.stock[+e.target.getAttribute('data-q')] = Math.max(0, parseInt(e.target.value, 10) || 0);
+          save(); results();
+        });
+        l.appendChild(inp); box.appendChild(l);
+      }
+    }
+    results();
+  }
+
+  function results() {
+    var p = plan(st.target, st.count, st.method, st.stock);
+    var other = plan(st.target, st.count, st.method === 'three' ? 'ten' : 'three', st.stock);
+    el('totals').innerHTML =
+      '<div><b>' + fmt(p.vp) + '</b><span>ещё чарок VP</span></div>' +
+      '<div><b>' + fmt(p.okovy) + '</b><span>Оков Сущности</span></div>' +
+      '<div><b>' + fmt(p.hammers) + '</b><span>Энергетических молотов</span></div>';
+    el('other').textContent = 'Способом «' + (st.method === 'three' ? 'P из 10 VP' : 'P из 3 VP') + '»: VP ' +
+      fmt(other.vp) + ', Оков ' + fmt(other.okovy) + ', молотов ' + fmt(other.hammers) + '.';
+    var rows = '<tr><th>Качество</th><th>Нужно</th><th>Есть</th><th>Собрать</th><th>Оков</th><th>Молотов</th></tr>';
+    p.steps.forEach(function (s) {
+      var vp = s.q === 0;
+      rows += '<tr><td>' + Q[s.q] + '</td><td>' + fmt(s.need) + '</td><td>' + fmt(s.from) + '</td><td>' +
+        (vp ? '—' : fmt(s.make)) + '</td><td>' + (vp ? '—' : fmt(s.o)) + '</td><td>' + (vp ? '—' : fmt(s.h)) + '</td></tr>';
+    });
+    el('steps').innerHTML = rows;
+  }
+
+  sel.addEventListener('change', function () { st.target = +sel.value; save(); render(); });
+  el('count').addEventListener('input', function (e) {
+    st.count = Math.min(999, Math.max(1, parseInt(e.target.value, 10) || 1)); save(); results();
+  });
+  el('method').addEventListener('click', function (e) {
+    var m = e.target.getAttribute && e.target.getAttribute('data-m');
+    if (m) { st.method = m; save(); render(); }
+  });
+  el('reset').addEventListener('click', function () {
+    st = { target: st.target, count: 1, method: st.method, stock: [] };
+    el('stock').innerHTML = ''; save(); render();
+  });
+  render();
+})();
+</script>
+
+</main>
+<footer>
+<p><a href="/">БК Справочник</a> — неофициальный справочник по онлайн-игре «Бойцовский клуб» (combats.com). Независимый фанатский проект, не связан с разработчиками и правообладателями игры. Названия и товарные знаки принадлежат их владельцам.</p>
+<p><a href="/o-proekte/">О проекте</a> · <a href="/podderzhat/">Поддержать проект</a></p>
+</footer>
+</body>
+</html>
