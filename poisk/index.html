@@ -33,6 +33,7 @@
 <button type="button" data-f="d">Подземелья</button>
 <button type="button" data-f="a">Статьи</button>
 <button type="button" data-f="i">Предметы</button>
+<button type="button" data-f="t">Инструменты</button>
 </div>
 <p class="muted" id="hint">Введите хотя бы две буквы.</p>
 <ul class="links" id="out"></ul>
@@ -70,9 +71,10 @@
   function esc(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function run() {
     var v = norm(q.value.trim());
-    if (v.length < 2) { out.innerHTML = ''; hint.textContent = 'Введите хотя бы две буквы.'; return; }
+    if (v.length < 2 && filter === 't') v = '';
+    else if (v.length < 2) { out.innerHTML = ''; hint.textContent = 'Введите хотя бы две буквы.'; return; }
     load(function () {
-      var words = v.split(/\s+/), starts = [], rest = [];
+      var words = v ? v.split(/\s+/) : [], starts = [], rest = [];
       for (var i = 0; i < index.length; i++) {
         var e = index[i], toks = e.n.split(/[^a-zа-я0-9]+/);
         if (filter && e.k !== filter) continue;
@@ -100,7 +102,7 @@
   var timer;
   q.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(run, 200); });
   var p = new URLSearchParams(location.search).get('q');
-  if (p) { q.value = p; run(); }
+  if (p) { q.value = p; run(); } else if (filter === 't') run();
 })();
 </script>
 

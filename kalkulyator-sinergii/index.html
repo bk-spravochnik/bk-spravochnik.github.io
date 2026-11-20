@@ -39,12 +39,13 @@
 <div id="steps-box"><h2>Что поднять</h2><div class="steps" id="steps"></div></div>
 
 <h2>Что стоит в слотах</h2>
+<div class="slots" id="slots"></div>
+<hr class="line">
 <div class="fill">
 <label>Всем слотам<select id="fill-q"></select></label>
 <label>Уровень<select id="fill-l"></select></label>
 <button type="button" id="fill">Заполнить</button>
 </div>
-<div class="slots" id="slots"></div>
 <p class="muted">Слоты оружия, щита, рубахи и плаща в синергии не участвуют. Характеристики рун и чарок случайные, поэтому точную прибавку игра показывает в состояниях персонажа: сумма модификаторов участвующих, делённая на 12 и округлённая вниз. Подробнее — в статье <a href="../rune-enchant-synergy/">Синергия рун и чарок</a>.</p>
 <button type="button" class="reset" id="reset">Очистить</button>
 </article>
@@ -60,7 +61,8 @@
 .syn .steps small { display: block; color: var(--muted); }
 .syn select { font: 16px var(--sans); color: var(--fg); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 8px; min-width: 0; }
 .syn label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
-.syn .fill { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 12px; }
+.syn .fill { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; margin: 0 0 12px; }
+.syn .line { border: 0; border-top: 1px solid var(--line); margin: 14px 0; max-width: 520px; }
 .syn .fill button, .syn .reset { padding: 10px 14px; background: none; color: var(--fg); border: 1px solid var(--line); border-radius: 12px; font: 700 15px var(--sans); cursor: pointer; }
 .syn .slots { display: grid; grid-template-columns: 1fr auto auto; gap: 8px 10px; align-items: center; max-width: 520px; }
 .syn .slots .on { color: var(--accent); font-weight: 700; }
