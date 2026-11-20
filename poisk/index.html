@@ -27,6 +27,13 @@
 <article class="search">
 <h1>Поиск по справочнику</h1>
 <input id="q" type="search" placeholder="Название статьи, подземелья, предмета…" autocomplete="off" autofocus>
+<div class="chips" id="chips">
+<button type="button" data-f="">Всё</button>
+<button type="button" data-f="e">События</button>
+<button type="button" data-f="d">Подземелья</button>
+<button type="button" data-f="a">Статьи</button>
+<button type="button" data-f="i">Предметы</button>
+</div>
 <p class="muted" id="hint">Введите хотя бы две буквы.</p>
 <ul class="links" id="out"></ul>
 </article>
@@ -35,10 +42,21 @@
   background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin: 8px 0 4px; }
 .search #q:focus { outline: 2px solid var(--accent); }
 .search .k { color: var(--muted); font-size: 13px; margin-left: 6px; }
+.search .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 10px 0 4px; }
+.search .chips button { padding: 7px 14px; border: 1px solid var(--line); border-radius: 99px; background: none; color: var(--fg); font: 600 14px var(--sans); cursor: pointer; }
+.search .chips button.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
 </style>
 <script>
 (function () {
-  var KINDS = { a: 'статья', d: 'подземелье', e: 'событие', i: 'предмет', s: 'магазин', c: 'комплект', t: 'инструмент' };
+  var KINDS = { a: 'статья', q: 'квест', k: 'коллекция', d: 'подземелье', e: 'событие', i: 'предмет', s: 'магазин', c: 'комплект', t: 'инструмент' };
+  // Same filters as the app: everything, events, dungeons, articles, items.
+  var filter = new URLSearchParams(location.search).get('f') || '';
+  var chips = document.getElementById('chips');
+  function paint() {
+    var bs = chips.querySelectorAll('button');
+    for (var i = 0; i < bs.length; i++) bs[i].className = bs[i].getAttribute('data-f') === filter ? 'on' : '';
+  }
+  paint();
   var index = null, q = document.getElementById('q'), out = document.getElementById('out'), hint = document.getElementById('hint');
   function norm(s) { return s.toLowerCase().replace(/ё/g, 'е'); }
   function load(cb) {
@@ -57,6 +75,7 @@
       var words = v.split(/\s+/), starts = [], rest = [];
       for (var i = 0; i < index.length; i++) {
         var e = index[i], toks = e.n.split(/[^a-zа-я0-9]+/);
+        if (filter && e.k !== filter) continue;
         var ok = words.every(function (w) { return toks.some(function (t) { return t.indexOf(w) === 0; }); });
         if (!ok) continue;
         (e.n.indexOf(v) === 0 ? starts : rest).push(e);
@@ -69,6 +88,15 @@
       }).join('');
     });
   }
+  chips.addEventListener('click', function (ev) {
+    var f = ev.target.getAttribute && ev.target.getAttribute('data-f');
+    if (f === null || f === undefined) return;
+    filter = f; paint();
+    var u = new URL(location.href);
+    if (f) u.searchParams.set('f', f); else u.searchParams.delete('f');
+    history.replaceState(null, '', u);
+    run();
+  });
   var timer;
   q.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(run, 200); });
   var p = new URLSearchParams(location.search).get('q');
