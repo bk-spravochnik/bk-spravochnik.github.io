@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Отмычка Combats (БК) — сундуки с припасами в Твердыне Сумрака</title>
+<meta name="description" content="Мини-игра с отмычкой у Сундука с припасами в Твердыне Сумрака (Бойцовский клуб): куда крутить — влево или вправо, и что уже известно после сломанных отмычек.">
+<link rel="canonical" href="https://bk-spravochnik.github.io/otmychka/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="БК Справочник">
+<meta property="og:title" content="Отмычка Combats (БК) — сундуки с припасами в Твердыне Сумрака">
+<meta property="og:description" content="Мини-игра с отмычкой у Сундука с припасами в Твердыне Сумрака (Бойцовский клуб): куда крутить — влево или вправо, и что уже известно после сломанных отмычек.">
+<meta property="og:url" content="https://bk-spravochnik.github.io/otmychka/">
+<meta property="og:image" content="https://bk-spravochnik.github.io/icon-512.png">
+
+<meta name="theme-color" content="#101219">
+
+<link rel="icon" href="/icon-512.png">
+<link rel="stylesheet" href="/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","name":"Отмычка для сундуков Твердыни Сумрака","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://bk-spravochnik.github.io/"},{"@type":"ListItem","position":2,"name":"Инструменты","item":"https://bk-spravochnik.github.io/instrumenty/"},{"@type":"ListItem","position":3,"name":"Отмычка для сундуков Твердыни Сумрака","item":"https://bk-spravochnik.github.io/otmychka/"}]}</script>
+</head>
+<body>
+<header class="top"><a class="brand" href="/"><img src="/icon-512.png" alt="" width="28" height="28">БК Справочник</a>
+<nav class="nav"><a class="find" href="/poisk/">Поиск</a><a class="get" href="https://play.google.com/store/apps/details?id=ee.brukvin.bkguide" rel="noopener">Приложение</a></nav></header>
+<main>
+<nav class="crumbs"><a href="/">Главная</a> › <a href="/instrumenty/">Инструменты</a></nav>
+<article class="lockpick">
+<p class="kind">Инструмент</p>
+<h1>Отмычка</h1>
+<p class="lead">Сундук с припасами в Твердыне Сумрака. Крутите отмычку, как подсказано, и отмечайте, что вышло. Комбинация сундука не меняется, поэтому каждая сломанная отмычка открывает один поворот насовсем.</p>
+<div class="strip" id="strip"></div>
+<div id="panel"></div>
+<p class="center"><button type="button" class="link" id="undo">↶ Отменить последнее</button></p>
+<button type="button" class="reset" id="reset">Новый сундук</button>
+<p class="muted center">Записи сохраняются в этом браузере. Для другого сундука нажмите «Новый сундук» — у него своя комбинация.</p>
+</article>
+<style>
+.lockpick .center { text-align: center; }
+.strip { display: flex; justify-content: center; gap: 8px; margin: 18px 0; }
+.strip span { width: 54px; height: 54px; display: flex; align-items: center; justify-content: center;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 10px; font: 700 22px var(--sans); color: var(--muted); }
+.strip span.known { color: var(--fg); }
+.strip span.done { background: var(--surface2); border-color: #4fbf7f; }
+.strip span.cur { border: 2px solid var(--accent); }
+.card-next { background: var(--surface); border: 1px solid var(--accent); border-radius: 14px; padding: 16px; text-align: center; }
+.card-next.ok { border-color: #4fbf7f; }
+.card-next .num { font: 700 40px/1.2 var(--sans); color: var(--accent); }
+.card-next.ok .num { color: #4fbf7f; }
+.big, .alt, .reset, .link { font: 700 17px var(--sans); border-radius: 12px; cursor: pointer; }
+.big { display: block; width: 100%; margin-top: 12px; padding: 16px; background: var(--accent); color: var(--accent-ink); border: 0; }
+.alt { display: block; width: 100%; margin-top: 8px; padding: 14px; background: none; color: var(--fg); border: 1px solid var(--line); }
+.alt:disabled, .link:disabled { opacity: .45; cursor: default; }
+.link { background: none; border: 0; color: var(--accent); font-size: 15px; margin-top: 8px; }
+.reset { display: block; width: 100%; margin-top: 16px; padding: 12px; background: none; color: var(--fg); border: 1px solid var(--line); font-size: 16px; }
+</style>
+<script>
+(function () {
+  var KEY = 'bk-lockpick', hist = [];
+  var run = { count: 4, known: [], pos: 0, broken: 0 };
+  try { var s = JSON.parse(localStorage.getItem(KEY) || 'null'); if (s && s.count) run = s; } catch (e) {}
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(run)); } catch (e) {} }
+  function set(r, keep) { if (keep !== false) hist.push(JSON.stringify(run)); run = r; save(); render(); }
+  function sug() { return run.known[run.pos] || 'L'; }
+  function word(t) { return t === 'L' ? 'ВЛЕВО' : 'ВПРАВО'; }
+  function el(id) { return document.getElementById(id); }
+  function render() {
+    var open = run.pos >= run.count, s = '';
+    for (var i = 0; i < run.count; i++) {
+      var k = run.known[i];
+      var cls = (k ? 'known ' : '') + (i < run.pos ? 'done ' : '') + (i === run.pos && !open ? 'cur' : '');
+      s += '<span class="' + cls + '">' + (k === 'L' ? '←' : k === 'R' ? '→' : '?') + '</span>';
+    }
+    el('strip').innerHTML = s;
+    var sure = !!run.known[run.pos];
+    el('panel').innerHTML = open
+      ? '<div class="card-next ok"><div>Сундук открыт</div><div class="num">✓</div><div class="muted">Сломано отмычек: ' + run.broken + '</div></div>'
+      : '<div class="card-next"><div>Положение ' + (run.pos + 1) + ' из ' + run.count + ' · ' + (sure ? 'точно' : 'наугад') +
+        '</div><div class="num">' + word(sug()) + '</div><div class="muted">' +
+        (sure ? 'Этот поворот уже известен.' : 'Пока неизвестно — пробуем влево.') + '</div></div>' +
+        '<button type="button" class="big" id="click">Щёлкнуло — поддаётся</button>' +
+        '<button type="button" class="alt" id="broke"' + (sure ? ' disabled' : '') + '>Отмычка сломалась</button>';
+    if (!open) {
+      el('click').onclick = function () {
+        var k = run.known.slice(); k[run.pos] = sug();
+        set({ count: run.count, known: k, pos: run.pos + 1, broken: run.broken });
+      };
+      el('broke').onclick = function () {
+        var k = run.known.slice(); k[run.pos] = sug() === 'L' ? 'R' : 'L';
+        set({ count: run.count, known: k, pos: 0, broken: run.broken + 1 });
+      };
+    }
+    el('undo').disabled = !hist.length;
+  }
+  el('undo').onclick = function () { if (hist.length) { run = JSON.parse(hist.pop()); save(); render(); } };
+  el('reset').onclick = function () { set({ count: run.count, known: [], pos: 0, broken: 0 }); };
+  render();
+})();
+</script>
+<p class="muted">Всё о подземелье — в статье <a href="/tverdynya-sumraka/">Твердыня Сумрака</a>.</p>
+</main>
+<footer>
+<p><a href="/">БК Справочник</a> — неофициальный справочник по онлайн-игре «Бойцовский клуб» (combats.com). Независимый фанатский проект, не связан с разработчиками и правообладателями игры. Названия и товарные знаки принадлежат их владельцам.</p>
+<p><a href="/o-proekte/">О проекте</a> · <a href="/podderzhat/">Поддержать проект</a></p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://bk-spravochnik.github.io/sitemap.xml
+Sitemap: https://bk-spravochnik.github.io/sitemap-main.xml
+Sitemap: https://bk-spravochnik.github.io/sitemap-items.xml
