@@ -18,7 +18,7 @@
 <link rel="icon" href="/icon-512.png">
 <link rel="stylesheet" href="/style.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","name":"Титулы","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://bk-spravochnik.github.io/"},{"@type":"ListItem","position":2,"name":"Персонаж","item":"https://bk-spravochnik.github.io/razdel/character/"},{"@type":"ListItem","position":3,"name":"Титулы","item":"https://bk-spravochnik.github.io/character-titles/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Титулы","description":"Слот титула и все виды титулов: классовые Властители и Хранители за подвиги в боях, титулы Лиги Мастерства и перераспределение их параметров, титулы Жёлтой Школы с Призмой и Монументальным улучшением, клановые титулы Единства.","datePublished":"2026-11-13","dateModified":"2026-11-13","inLanguage":"ru","author":{"@type":"Organization","name":"БК Справочник","url":"https://bk-spravochnik.github.io/"},"publisher":{"@type":"Organization","name":"БК Справочник","url":"https://bk-spravochnik.github.io/","logo":"https://bk-spravochnik.github.io/icon-512.png","sameAs":["https://play.google.com/store/apps/details?id=ee.brukvin.bkguide"]},"mainEntityOfPage":"https://bk-spravochnik.github.io/character-titles/","image":{"@type":"ImageObject","contentUrl":"https://bk-spravochnik.github.io/covers/character-titles.jpg","caption":"Титулы","creditText":"БК Справочник","creator":{"@type":"Organization","name":"БК Справочник"},"copyrightNotice":"БК Справочник","license":"https://bk-spravochnik.github.io/LICENSE","acquireLicensePage":"https://bk-spravochnik.github.io/o-proekte/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Титулы","description":"Слот титула и все виды титулов: классовые Властители и Хранители за подвиги в боях, титулы Лиги Мастерства и перераспределение их параметров, титулы Жёлтой Школы с Призмой и Монументальным улучшением, клановые титулы Единства.","datePublished":"2026-11-13","dateModified":"2026-11-23","inLanguage":"ru","author":{"@type":"Organization","name":"БК Справочник","url":"https://bk-spravochnik.github.io/"},"publisher":{"@type":"Organization","name":"БК Справочник","url":"https://bk-spravochnik.github.io/","logo":"https://bk-spravochnik.github.io/icon-512.png","sameAs":["https://play.google.com/store/apps/details?id=ee.brukvin.bkguide"]},"mainEntityOfPage":"https://bk-spravochnik.github.io/character-titles/","image":{"@type":"ImageObject","contentUrl":"https://bk-spravochnik.github.io/covers/character-titles.jpg","caption":"Титулы","creditText":"БК Справочник","creator":{"@type":"Organization","name":"БК Справочник"},"copyrightNotice":"БК Справочник","license":"https://bk-spravochnik.github.io/LICENSE","acquireLicensePage":"https://bk-spravochnik.github.io/o-proekte/"}}</script>
 </head>
 <body>
 <header class="top"><a class="brand" href="/"><img src="/icon-512.png" alt="" width="28" height="28">БК Справочник</a>
@@ -110,7 +110,18 @@
 <li><b><a href="/predmet/mastery_league_mutation_key_1/">Горка Древней Пыли</a></b> — из Саквояжей Охотника на Демонов, которые падают с Верховных Демонов в <a href="/katakomby/">Катакомбах</a>;</li>
 <li><b><a href="/predmet/mastery_league_mutation_box_key/">Коробок Древней Пыли</a></b> на 100 перераспределений — у Перебежчика Брута, с рейтингом Лиги от 2600 (Цитрин и выше). Стоит 1000 кр, Особенный коробок и 100 Щепоток пыли.</li>
 </ul>
-<p>Что может выпасть (в скобках — сколько очков стоит единица): Сила, Ловкость, Интуиция, Интеллект (12); мощность урона и мощность магии стихий (10), мощность урона одного типа или одной стихии (5); парирование (10); контрудар и мощность крита (5); против мощности крита (4); защита от урона и от магии (3); крит, против крита, уворот, против уворота, защита от одного типа урона или одной стихии, HP и мана (1).</p>
+<p><b>Возможные параметры.</b> Очки титула раскладываются по параметрам из списка. Число — сколько очков стоит <b>одна единица</b> параметра; это цена, а не потолок.</p>
+<div class="table"><table><thead><tr>
+<th>Очков за единицу</th><th>Параметры</th></tr></thead><tbody>
+<tr><td>12</td><td>Сила, Ловкость, Интуиция, Интеллект</td></tr>
+<tr><td>10</td><td>Мощность урона, мощность магии стихий, парирование</td></tr>
+<tr><td>5</td><td>Мощность урона одного типа (рубящего, режущего, колющего, дробящего), мощность магии одной стихии, контрудар, мощность крита</td></tr>
+<tr><td>4</td><td>Против мощности крита</td></tr>
+<tr><td>3</td><td>Защита от урона, защита от магии</td></tr>
+<tr><td>1</td><td>Крит, против крита, уворот, против уворота, защита от одного типа урона или одной стихии, HP, мана</td></tr>
+</tbody></table></div>
+<p>Сумма всегда ровно равна очкам титула. Например, Покоритель Лиги Янтаря <span class="q q-u">U</span> (350 очков): рубящий урон +52 (260 очков), контрудар +9 (45), мощность крита +5 (25), против крита +13 (13), защита от магии огня +3 и земли +4 (7) — ровно 350.</p>
+<p>В титулах способности и мощность урона бывают куда выше, чем в <a href="/crown-underground-shine/">Короне Подземного Сияния</a>: встречаются Сила +10 и рубящий урон +52. Поэтому удачный титул — это когда большая часть очков ушла в способность и мощность урона своего класса, а не в HP и защиты по 1 очку.</p>
 <p>На мощность крита и защиту от неё есть потолок по качеству титула:</p>
 <div class="table"><table><thead><tr>
 <th>Качество</th><th>Мощность крита, очков</th><th>Против мощности крита, очков</th></tr></thead><tbody>
@@ -173,7 +184,7 @@
 
 
 <section class="related"><h2>Связанное</h2><ul><li><a href="/pvp-league/">Лига Мастерства</a> — Титулы Лиги</li><li><a href="/character-achievements/">Подвиги</a> — Подвиги</li><li><a href="/character-nobility/">Благородство и рейтинг благородства</a> — Благородство</li><li><a href="/items-gear-12/">Экипировка 12 уровня</a> — Экипировка 12 уровня</li></ul></section>
-<p class="updated">Обновлено 2026-11-13</p>
+<p class="updated">Обновлено 2026-11-23</p>
 </article>
 </main>
 <footer>
